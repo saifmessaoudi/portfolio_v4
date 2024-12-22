@@ -68,9 +68,10 @@ const Hero = () => {
         I’m a Software Engineer specializing in building & designing exceptional mobile applications
         with passion.
         <br></br>
-        Currently, I'm a Mobile Software Engineer intern at{' '}
+        <br></br>
+        Currently, I'm a Mobile Engineer intern at{' '}
         <a href="https://value.com.tn/" target="_blank" rel="noreferrer">
-          Value
+          Value Digital Services
         </a>
       </p>
     </>

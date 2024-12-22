@@ -2,11 +2,11 @@ const config = require('./src/config');
 
 module.exports = {
   siteMetadata: {
-    title: 'Brittany Chiang',
+    title: 'Saif Messaoudi',
     description:
-      'Brittany Chiang is a software engineer who specializes in building (and occasionally designing) exceptional digital experiences.',
-    siteUrl: 'https://brittanychiang.com', // No trailing slash allowed!
-    image: '/og.png', // Path to your image you placed in the 'static' folder
+      'Saif Messaoudi is a Mobile Software Engineer specializing in creating innovative and user-friendly mobile solutions.',
+    siteUrl: 'https://www.saifmessaoudi.tech', // No trailing slash allowed!
+    image: '/og.png',
     twitterUsername: '@bchiang7',
   },
   plugins: [
