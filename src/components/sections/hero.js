@@ -61,7 +61,7 @@ const Hero = () => {
 
   const one = <h1>Hi there, my name is</h1>;
   const two = <h2 className="big-heading">Saif Messaoudi</h2>;
-  const three = <h3 className="big-heading">I craft mobile applications📱</h3>;
+  const three = <h3 className="big-heading">I craft mobile applications</h3>;
   const four = (
     <>
       <p>
@@ -69,9 +69,9 @@ const Hero = () => {
         with passion.
         <br></br>
         <br></br>
-        Currently, I'm a Mobile Engineer intern at{' '}
-        <a href="https://value.com.tn/" target="_blank" rel="noreferrer">
-          Value Digital Services
+        Currently, I'm a Software Engineer at{' '}
+        <a href="https://monsapo.com/" target="_blank" rel="noreferrer">
+          Monsapo
         </a>
       </p>
     </>

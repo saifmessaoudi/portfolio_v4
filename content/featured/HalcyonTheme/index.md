@@ -1,15 +1,19 @@
 ---
 date: '1'
-title: 'Halcyon Theme'
-cover: './halcyon.png'
-github: 'https://github.com/bchiang7/halcyon-site'
-external: 'https://halcyon-theme.netlify.com/'
+title: 'InFlow – AI-Powered Accounting Automation'
+cover: './inflow.PNG'
+external: 'https://inflow.tax'
 tech:
-  - VS Code
-  - Sublime Text
-  - Atom
-  - iTerm2
-  - Hyper
+  - TypeScript
+  - Turborepo
+  - tRPC
+  - Zod
+  - Neon(PostgreSQL)
+  - AWS Lambda
+  - Google Cloud
+  - Pulumi(IaC)
+  - Node.js
 ---
 
-A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=brittanychiang.halcyon-vscode), [Package Control](https://packagecontrol.io/packages/Halcyon%20Theme), [Atom Package Manager](https://atom.io/themes/halcyon-syntax), and [npm](https://www.npmjs.com/package/hyper-halcyon-theme).
+InFlow is an AI-powered accounting application that automates invoice processing, financial workflows, and business document management.  
+The system leverages Neon and AWS serverless functions to deliver secure, reliable, and efficient financial operations for modern businesses.
