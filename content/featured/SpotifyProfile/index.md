@@ -1,15 +1,17 @@
 ---
 date: '2'
-title: 'Spotify Profile'
-cover: './demo.png'
-github: 'https://github.com/bchiang7/spotify-profile'
-external: 'https://spotify-profile.herokuapp.com/'
+title: 'MaaarPay - Spend Crypto Like Cash'
+cover: './maaar.jpg'
+external: 'https://maaarpay.com'
 tech:
-  - React
-  - Styled Components
-  - Express
-  - Spotify API
-  - Heroku
+  - Flutter
+  - Dart
+  - Firebase Suite
+  - CI/CD
+  - REST API
+  - Unit Testing
+  - Clean Architecture
+  - Analytics & Crashlytics
 ---
 
-A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.
+MaaarPay enables users to send, receive, and manage crypto transactions, link multiple payment methods, and track their balance in real time.
