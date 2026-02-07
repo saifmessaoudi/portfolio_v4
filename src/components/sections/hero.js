@@ -272,11 +272,6 @@ const Hero = () => {
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const items = [
-    <div key="badge" className="hero-badge">
-      <span className="badge-dot" />
-      <span>Available for work</span>
-    </div>,
-
     <p key="intro" className="hero-intro">
       Hey, my name is
     </p>,
