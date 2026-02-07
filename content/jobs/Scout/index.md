@@ -1,11 +1,12 @@
 ---
 date: '2017-04-01'
-title: 'Developer'
-company: 'Scout Studio'
-location: 'Northeastern University'
-range: 'Spring 2016 & 2017'
-url: 'https://web.northeastern.edu/scout/'
+title: 'Mobile Development Intern'
+company: 'ESPRIT'
+location: 'Tunis, TN'
+range: 'January - May 2023'
+url: 'https://esprit.tn'
 ---
 
-- Collaborated with other student designers and engineers on pro-bono projects to create new brands, design systems, and websites for organizations in the community
-- Built and delivered technical solutions according to stakeholder business requirements
+- Developed a capstone mobile application using Flutter demonstrating proficiency in cross-platform development
+- Implemented clean architecture patterns with BLoC state management for scalable app structure
+- Collaborated with peers on agile-driven projects, participating in code reviews and sprint planning

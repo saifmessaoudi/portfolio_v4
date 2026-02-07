@@ -1,12 +1,12 @@
 ---
 date: '2015-12-21'
-title: 'Creative Technologist Co-op'
-company: 'MullenLowe'
-location: 'Boston, MA'
-range: 'July - December 2015'
-url: 'https://us.mullenlowe.com/'
+title: 'Junior Developer'
+company: 'Personal Projects'
+location: 'Tunis, TN'
+range: '2021 - 2022'
+url: 'https://github.com/saifmessaoudi'
 ---
 
-- Developed, maintained, and shipped production code for client websites primarily using HTML, CSS, Sass, JavaScript, and jQuery
-- Performed quality assurance tests on various sites to ensure cross-browser compatibility and mobile responsiveness
-- Clients included JetBlue, Lovesac, U.S. Cellular, U.S. Department of Defense, and more
+- Designed and developed multiple mobile applications for personal portfolio and learning purposes using Flutter and Swift
+- Published applications on App Store and Google Play Store, gaining experience with app review processes and deployment pipelines
+- Explored advanced mobile topics including animations, custom widgets, and platform-specific integrations

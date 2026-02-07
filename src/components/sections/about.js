@@ -1,9 +1,20 @@
 import React, { useEffect, useRef } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { srConfig } from '@config';
 import sr from '@utils/sr';
 import { usePrefersReducedMotion } from '@hooks';
+
+const skillFadeIn = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -34,14 +45,27 @@ const StyledText = styled.div`
       padding-left: 20px;
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
+      color: var(--text-secondary);
+      transition: color 0.2s var(--ease-smooth);
+      opacity: 0;
+      animation: ${skillFadeIn} 0.4s var(--ease-out-expo) forwards;
+
+      ${Array.from(
+    { length: 10 },
+    (_, i) => `&:nth-child(${i + 1}) { animation-delay: ${i * 60 + 200}ms; }`,
+  ).join('\n      ')}
 
       &:before {
-        content: '▹';
+        content: '\\25B9';
         position: absolute;
         left: 0;
-        color: var(--green);
+        color: var(--accent);
         font-size: var(--fz-sm);
         line-height: 12px;
+      }
+
+      &:hover {
+        color: var(--accent);
       }
     }
   }
@@ -51,64 +75,60 @@ const StyledPic = styled.div`
   max-width: 300px;
 
   @media (max-width: 768px) {
-    margin: 50px auto 0;
-    width: 70%;
+    margin: 40px auto 0;
+    width: 60%;
+    max-width: 250px;
   }
 
   .wrapper {
-    ${({ theme }) => theme.mixins.boxShadow};
     display: block;
     position: relative;
     width: 100%;
-    border-radius: var(--border-radius);
-    background-color: var(--green);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-slow);
 
     &:hover,
     &:focus {
       outline: 0;
-      transform: translate(-4px, -4px);
-
-      &:after {
-        transform: translate(8px, 8px);
-      }
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-card-hover);
 
       .img {
-        filter: none;
-        mix-blend-mode: normal;
+        filter: brightness(1.02) contrast(1.01);
+        transform: scale(1.02);
       }
     }
 
     .img {
       position: relative;
-      border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
-      transition: var(--transition);
+      border-radius: var(--border-radius-lg);
+      filter: brightness(1) contrast(1);
+      transition: var(--transition-slow);
     }
 
-    &:before,
+    &:before {
+      display: none;
+    }
+
     &:after {
       content: '';
       display: block;
       position: absolute;
       width: 100%;
       height: 100%;
-      border-radius: var(--border-radius);
-      transition: var(--transition);
-    }
-
-    &:before {
-      top: 0;
-      left: 0;
-      background-color: var(--navy);
-      mix-blend-mode: screen;
-    }
-
-    &:after {
-      border: 2px solid var(--green);
+      border-radius: var(--border-radius-lg);
+      border: 2px solid var(--border);
       top: 14px;
       left: 14px;
       z-index: -1;
+      transition: var(--transition);
+
+      @media (max-width: 480px) {
+        top: 10px;
+        left: 10px;
+      }
     }
   }
 `;
@@ -125,7 +145,16 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['Flutter', 'Kotlin', 'Express.js', 'Next.js', 'Node.js', 'MongoDB'];
+  const skills = [
+    'Flutter',
+    'Kotlin',
+    'Dart',
+    'Java',
+    'Firebase',
+    'TypeScript',
+    'Node.js',
+    'Swift',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -135,12 +164,15 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Saif and i'm specialized in creating innovative and user-friendly
-              mobile solutions, I am always seeking new challenges to enhance my skills and
-              contribute to impactful projects.
+              I am a mobile software engineer with a passion for crafting elegant and efficient
+              applications.
+            </p>
+            <p>
+              I thrive on turning complex problems into intuitive, delightful mobile experiences
+              that users love.
             </p>
 
-            <p>Here are a few technologies I’ve been working with recently:</p>
+            <p>Here are a few technologies I've been working with recently:</p>
           </div>
 
           <ul className="skills-list">

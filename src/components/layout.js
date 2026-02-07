@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
-import { Head, Loader, Nav, Social, Email, Footer, ScrollToTop } from '@components';
+import { Head, Loader, Sidebar, Footer, ScrollToTop } from '@components';
 import { GlobalStyle, theme } from '@styles';
 
 const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: var(--bg-primary);
+  position: relative;
+  z-index: 1;
 `;
 
 const Layout = ({ children, location }) => {
@@ -54,6 +57,8 @@ const Layout = ({ children, location }) => {
         <ThemeProvider theme={theme}>
           <GlobalStyle />
 
+          <div className="gradient-mesh" />
+
           <a className="skip-to-content" href="#content">
             Skip to Content
           </a>
@@ -62,9 +67,7 @@ const Layout = ({ children, location }) => {
             <Loader finishLoading={() => setIsLoading(false)} />
           ) : (
             <StyledContent>
-              <Nav isHome={isHome} />
-              <Social isHome={isHome} />
-              <Email isHome={isHome} />
+              <Sidebar isHome={isHome} />
 
               <div id="content">
                 {children}

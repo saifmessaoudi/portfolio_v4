@@ -1,12 +1,12 @@
 ---
 date: '2016-12-21'
-title: 'Software Engineer Co-op'
-company: 'Starry'
-location: 'Boston, MA'
-range: 'July - December 2016'
-url: 'https://starry.com/'
+title: 'Mobile Developer Intern'
+company: 'Freelance'
+location: 'Tunis, TN'
+range: 'June - December 2023'
+url: '#'
 ---
 
-- Engineered and improved major features of Starry's customer-facing Android web app using ES6, Handlebars, Backbone, Marionette, and CSS
-- Proposed and implemented scalable solutions to issues identified with cloud services and applications responsible for communicating with the Starry Station internet router
-- Collaborated with designers and other developers to ensure thoughtful and consistent user experiences across Starry’s iOS and Android mobile apps
+- Built custom mobile applications for small businesses and startups using Flutter, focusing on clean UI/UX and performance optimization
+- Integrated third-party services including Firebase, payment gateways, and analytics platforms
+- Managed full project lifecycle from requirements gathering to App Store/Play Store deployment

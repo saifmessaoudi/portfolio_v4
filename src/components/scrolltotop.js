@@ -6,15 +6,17 @@ import { usePrefersReducedMotion } from '@hooks';
 const StyledScrollButton = styled.button`
   ${({ theme }) => theme.mixins.flexCenter};
   position: fixed;
-  width: 50px;
-  height: 50px;
+  width: 48px;
+  height: 48px;
   bottom: 30px;
   right: 75px;
   z-index: 10;
-  background-color: var(--green-tint);
-  border: 1px solid var(--green);
-  border-radius: 50%;
-  color: var(--green);
+  background: var(--bg-glass-strong);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius-full);
+  color: var(--accent);
   cursor: pointer;
   transition: var(--transition);
   opacity: ${props => (props.show ? 1 : 0)};
@@ -22,8 +24,8 @@ const StyledScrollButton = styled.button`
   transform: ${props => (props.show ? 'translateY(0)' : 'translateY(20px)')};
 
   @media (max-width: 768px) {
-    width: 45px;
-    height: 45px;
+    width: 44px;
+    height: 44px;
     bottom: 20px;
     right: 20px;
   }
@@ -36,22 +38,18 @@ const StyledScrollButton = styled.button`
   }
 
   svg {
-    width: 20px;
-    height: 20px;
-
-    @media (max-width: 480px) {
-      width: 18px;
-      height: 18px;
-    }
+    width: 18px;
+    height: 18px;
   }
 
   &:hover,
   &:focus {
     outline: none;
-    background-color: var(--green);
-    color: var(--navy);
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: #ffffff;
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(100, 255, 218, 0.4);
+    box-shadow: var(--shadow-glow-strong);
   }
 
   &:active {

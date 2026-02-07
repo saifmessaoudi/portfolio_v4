@@ -49,11 +49,11 @@ const StyledProject = styled.li`
       }
       @media (max-width: 768px) {
         grid-column: 1 / -1;
-        padding: 40px 40px 30px;
+        padding: 30px 30px 25px;
         text-align: left;
       }
       @media (max-width: 480px) {
-        padding: 25px 25px 20px;
+        padding: 24px 20px 20px;
       }
     }
     .project-tech-list {
@@ -106,21 +106,22 @@ const StyledProject = styled.li`
       justify-content: center;
       height: 100%;
       grid-column: 1 / -1;
-      padding: 40px 40px 30px;
+      padding: 30px 30px 25px;
       z-index: 5;
     }
 
     @media (max-width: 480px) {
-      padding: 30px 25px 20px;
+      padding: 24px 20px 20px;
     }
   }
 
   .project-overline {
     margin: 10px 0;
-    color: var(--green);
+    color: var(--accent);
     font-family: var(--font-mono);
     font-size: var(--fz-xs);
     font-weight: 400;
+    letter-spacing: 0.05em;
   }
 
   .project-title {
@@ -156,10 +157,11 @@ const StyledProject = styled.li`
     position: relative;
     z-index: 2;
     padding: 25px;
-    border-radius: var(--border-radius);
-    background-color: var(--light-navy);
+    border-radius: var(--border-radius-lg);
+    background-color: var(--bg-elevated);
     color: var(--light-slate);
     font-size: var(--fz-lg);
+    line-height: 1.7;
 
     @media (max-width: 768px) {
       padding: 20px 0;
@@ -192,7 +194,7 @@ const StyledProject = styled.li`
 
     li {
       margin: 0 20px 5px 0;
-      color: var(--light-slate);
+      color: var(--accent-secondary);
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
       white-space: nowrap;
@@ -203,7 +205,7 @@ const StyledProject = styled.li`
 
       li {
         margin: 0 10px 5px 0;
-        color: var(--lightest-slate);
+        color: var(--accent-secondary);
       }
     }
   }
@@ -219,6 +221,11 @@ const StyledProject = styled.li`
     a {
       ${({ theme }) => theme.mixins.flexCenter};
       padding: 10px;
+      transition: var(--transition);
+
+      &:hover {
+        color: var(--accent);
+      }
 
       &.external {
         svg {
@@ -250,54 +257,41 @@ const StyledProject = styled.li`
     @media (max-width: 768px) {
       grid-column: 1 / -1;
       height: 100%;
-      opacity: 0.25;
+      opacity: 0.15;
     }
 
     a {
       width: 100%;
       height: 100%;
-      background-color: var(--green);
-      border-radius: var(--border-radius);
+      background-color: transparent;
+      border-radius: var(--border-radius-lg);
       vertical-align: middle;
+      transition: var(--transition);
 
       &:hover,
       &:focus {
         background: transparent;
         outline: 0;
 
-        &:before,
         .img {
-          background: transparent;
           filter: none;
+          transform: scale(1.02);
+          box-shadow: var(--shadow-card-hover);
         }
-      }
-
-      &:before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 3;
-        transition: var(--transition);
-        background-color: var(--navy);
-        mix-blend-mode: screen;
       }
     }
 
     .img {
-      border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1) brightness(90%);
+      border-radius: var(--border-radius-lg);
+      filter: brightness(0.98) contrast(1);
+      box-shadow: var(--shadow-card);
+      transition: var(--transition-slow);
 
       @media (max-width: 768px) {
         object-fit: cover;
         width: auto;
         height: 100%;
-        filter: grayscale(100%) contrast(1) brightness(50%);
+        filter: brightness(0.7) contrast(1);
       }
     }
   }
@@ -348,7 +342,7 @@ const Featured = () => {
   return (
     <section id="projects">
       <h2 className="numbered-heading" ref={revealTitle}>
-        Some Things I’ve Built
+        Some Things I've Built
       </h2>
 
       <StyledProjectsGrid>

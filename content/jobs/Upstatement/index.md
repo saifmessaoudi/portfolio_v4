@@ -3,11 +3,11 @@ date: '2018-05-14'
 title: 'Software Engineer'
 company: 'Monsapo'
 location: 'Tunis, TN'
-range: 'November 2025 - Present'
+range: 'November 2024 - Present'
 url: 'https://www.monsapo.com'
 ---
 
-- Deliver high-quality, robust production code for a diverse array of projects for clients including Harvard Business School, Everytown for Gun Safety, Pratt Institute, Koala Health, Vanderbilt University, The 19th News, and more
-- Work alongside creative directors to lead the research, development, and architecture of technical solutions to fulfill business requirements
-- Collaborate with designers, project managers, and other engineers to transform creative concepts into production realities for clients and stakeholders
-- Provide leadership within engineering department through close collaboration, knowledge shares, and mentorship
+- Lead the development of cross-platform mobile applications using Flutter and native iOS (Swift/SwiftUI), serving diverse clients across fintech and SaaS sectors
+- Architect scalable mobile solutions with clean architecture patterns, ensuring maintainability and performance across large codebases
+- Collaborate with cross-functional teams including designers and product managers to transform business requirements into polished, production-ready mobile experiences
+- Implement CI/CD pipelines and automated testing strategies to maintain code quality and accelerate release cycles

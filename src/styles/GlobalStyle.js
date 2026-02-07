@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import fonts from './fonts';
 import variables from './variables';
-import TransitionStyles from './TransitionStyles';
-import PrismStyles from './PrismStyles';
+import TransitionStyles from './TransitionStyles'; // eslint-disable-line no-unused-vars
+import PrismStyles from './PrismStyles'; // eslint-disable-line no-unused-vars
 
 const GlobalStyle = createGlobalStyle`
   ${fonts};
@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     width: 100%;
+    overflow-x: hidden;
     scroll-behavior: smooth;
   }
 
@@ -21,49 +22,39 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::selection {
-    background-color: var(--lightest-navy);
-    color: var(--lightest-slate);
+    background-color: var(--accent);
+    color: #ffffff;
   }
 
-  /* Provide basic, default focus styles.*/
   :focus {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--accent);
     outline-offset: 3px;
   }
 
-  /*
-    Remove default focus styles for mouse users ONLY if
-    :focus-visible is supported on this platform.
-  */
   :focus:not(:focus-visible) {
     outline: none;
     outline-offset: 0px;
   }
 
-  /*
-    Optionally: If :focus-visible is supported on this
-    platform, provide enhanced focus styles for keyboard
-    focus.
-  */
   :focus-visible {
-    outline: 2px dashed var(--green);
+    outline: 2px dashed var(--accent);
     outline-offset: 3px;
   }
 
-  /* Scrollbar Styles */
+  /* Scrollbar — light theme */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--dark-slate) var(--navy);
+    scrollbar-color: var(--accent-muted) var(--bg-secondary);
   }
   ::-webkit-scrollbar {
-    width: 12px;
+    width: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: var(--navy);
+    background: var(--bg-secondary);
   }
   ::-webkit-scrollbar-thumb {
-    background-color: var(--dark-slate);
-    border: 3px solid var(--navy);
+    background-color: var(--accent-muted);
+    border: 1px solid var(--bg-secondary);
     border-radius: 10px;
   }
 
@@ -75,13 +66,14 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     background-color: var(--navy);
-    color: var(--slate);
+    color: var(--text-secondary);
     font-family: var(--font-sans);
-    font-size: var(--fz-xl);
-    line-height: 1.3;
+    font-size: var(--fz-lg);
+    line-height: 1.6;
+    letter-spacing: -0.01em;
 
     @media (max-width: 480px) {
-      font-size: var(--fz-lg);
+      font-size: var(--fz-md);
     }
 
     &.hidden {
@@ -91,12 +83,8 @@ const GlobalStyle = createGlobalStyle`
     &.blur {
       overflow: hidden;
 
-      header {
-        background-color: transparent;
-      }
-
       #content > * {
-        filter: blur(5px) brightness(0.7);
+        filter: blur(5px) brightness(0.95);
         transition: var(--transition);
         pointer-events: none;
         user-select: none;
@@ -109,6 +97,7 @@ const GlobalStyle = createGlobalStyle`
     display: grid;
     grid-template-rows: 1fr auto;
     grid-template-columns: 100%;
+    overflow-x: hidden;
   }
 
   main {
@@ -116,29 +105,29 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     max-width: 1600px;
     min-height: 100vh;
-    padding: 200px 150px;
+    padding: 100px 150px 100px calc(150px + var(--sidebar-width));
 
     @media (max-width: 1080px) {
-      padding: 200px 100px;
+      padding: 100px 100px 100px calc(100px + var(--sidebar-width));
     }
     @media (max-width: 768px) {
-      padding: 150px 50px;
+      padding: 80px 24px 80px calc(24px + var(--sidebar-width-mobile));
     }
     @media (max-width: 480px) {
-      padding: 125px 25px;
+      padding: 60px 16px 60px calc(16px + var(--sidebar-width-mobile));
     }
 
     &.fillHeight {
-      padding: 0 150px;
+      padding: 0 150px 0 calc(150px + var(--sidebar-width));
 
       @media (max-width: 1080px) {
-        padding: 0 100px;
+        padding: 0 100px 0 calc(100px + var(--sidebar-width));
       }
       @media (max-width: 768px) {
-        padding: 0 50px;
+        padding: 0 24px 0 calc(24px + var(--sidebar-width-mobile));
       }
       @media (max-width: 480px) {
-        padding: 0 25px;
+        padding: 0 16px 0 calc(16px + var(--sidebar-width-mobile));
       }
     }
   }
@@ -157,26 +146,29 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h1, h2, h3, h4, h5, h6 {
     margin: 0 0 10px 0;
     font-weight: 600;
-    color: var(--lightest-slate);
+    color: var(--text-bright);
     line-height: 1.1;
+    letter-spacing: -0.02em;
   }
 
   .big-heading {
     margin: 0;
-    font-size: clamp(40px, 8vw, 80px);
+    font-size: clamp(40px, 8vw, 72px);
+    font-weight: 700;
+    letter-spacing: -0.04em;
   }
 
   .medium-heading {
     margin: 0;
     font-size: clamp(40px, 8vw, 60px);
+  }
+    .small-heading {
+    margin: 0;
+    font-size: clamp(16px, 4vw, var(--fz-heading));
+  
   }
 
   .numbered-heading {
@@ -185,16 +177,20 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     margin: 10px 0 40px;
     width: 100%;
-    font-size: clamp(26px, 5vw, var(--fz-heading));
+    font-size: clamp(24px, 5vw, var(--fz-heading));
     white-space: nowrap;
+
+    @media (max-width: 480px) {
+      margin: 10px 0 30px;
+    }
 
     &:before {
       position: relative;
-      bottom: 4px;
+      bottom: 2px;
       counter-increment: section;
       content: '0' counter(section) '.';
       margin-right: 10px;
-      color: var(--green);
+      color: var(--accent);
       font-family: var(--font-mono);
       font-size: clamp(var(--fz-md), 3vw, var(--fz-xl));
       font-weight: 400;
@@ -209,11 +205,13 @@ const GlobalStyle = createGlobalStyle`
       content: '';
       display: block;
       position: relative;
-      top: -5px;
+      top: -1px;
       width: 300px;
       height: 1px;
       margin-left: 20px;
-      background-color: var(--lightest-navy);
+      background: var(--border);
+      flex-shrink: 1;
+      min-width: 0;
 
       @media (max-width: 1080px) {
         width: 200px;
@@ -223,6 +221,9 @@ const GlobalStyle = createGlobalStyle`
       }
       @media (max-width: 600px) {
         margin-left: 10px;
+      }
+      @media (max-width: 480px) {
+        display: none;
       }
     }
   }
@@ -261,11 +262,11 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      color: var(--green);
+      color: var(--accent);
     }
 
     &.inline-link {
-      ${({ theme }) => theme.mixins.inlineLink};
+      \${({ theme }) => theme.mixins.inlineLink};
     }
   }
 
@@ -299,14 +300,14 @@ const GlobalStyle = createGlobalStyle`
     }
 
     & > a {
-      ${({ theme }) => theme.mixins.inlineLink};
+      \${({ theme }) => theme.mixins.inlineLink};
     }
 
     & > code {
       background-color: var(--light-navy);
-      color: var(--white);
+      color: var(--accent);
       font-size: var(--fz-sm);
-      border-radius: var(--border-radius);
+      border-radius: var(--border-radius-sm);
       padding: 0.3em 0.5em;
     }
   }
@@ -322,17 +323,17 @@ const GlobalStyle = createGlobalStyle`
         padding-left: 30px;
         margin-bottom: 10px;
         &:before {
-          content: '▹';
+          content: '\\25B9';
           position: absolute;
           left: 0;
-          color: var(--green);
+          color: var(--accent);
         }
       }
     }
   }
 
   blockquote {
-    border-left-color: var(--green);
+    border-left-color: var(--accent);
     border-left-style: solid;
     border-left-width: 1px;
     margin-left: 0px;
@@ -361,7 +362,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .skip-to-content {
-    ${({ theme }) => theme.mixins.button};
+    \${({ theme }) => theme.mixins.button};
     position: absolute;
     top: auto;
     left: -999px;
@@ -372,8 +373,8 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover,
     &:focus {
-      background-color: var(--green);
-      color: var(--navy);
+      background-color: var(--accent);
+      color: #ffffff;
       top: 0;
       left: 0;
       width: auto;
@@ -386,18 +387,18 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #logo {
-    color: var(--green);
+    color: var(--accent);
   }
 
   .overline {
-    color: var(--green);
+    color: var(--accent);
     font-family: var(--font-mono);
     font-size: var(--fz-md);
     font-weight: 400;
   }
 
   .subtitle {
-    color: var(--green);
+    color: var(--accent);
     margin: 0 0 20px 0;
     font-size: var(--fz-md);
     font-family: var(--font-mono);
@@ -411,7 +412,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-      ${({ theme }) => theme.mixins.inlineLink};
+      \${({ theme }) => theme.mixins.inlineLink};
       line-height: 1.5;
     }
   }
@@ -420,7 +421,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center;
     margin-bottom: 50px;
-    color: var(--green);
+    color: var(--accent);
 
     .arrow {
       display: block;
@@ -429,7 +430,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     a {
-      ${({ theme }) => theme.mixins.inlineLink};
+      \${({ theme }) => theme.mixins.inlineLink};
       font-family: var(--font-mono);
       font-size: var(--fz-sm);
       font-weight: 600;
@@ -443,9 +444,23 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
 
-  ${TransitionStyles};
+  /* Ambient background mesh — very subtle, barely visible */
+  .gradient-mesh {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(ellipse at 15% 50%, rgba(124, 106, 255, 0.04) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 20%, rgba(0, 201, 160, 0.03) 0%, transparent 50%);
+  }
 
-  ${PrismStyles};
+  \${TransitionStyles};
+
+  \${PrismStyles};
 `;
 
 export default GlobalStyle;

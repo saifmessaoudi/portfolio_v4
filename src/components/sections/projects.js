@@ -35,6 +35,11 @@ const StyledProjectsSection = styled.section`
     @media (max-width: 1080px) {
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+      margin-top: 30px;
+    }
   }
 
   .more-button {
@@ -46,13 +51,15 @@ const StyledProjectsSection = styled.section`
 const StyledProject = styled.li`
   position: relative;
   cursor: default;
-  transition: var(--transition);
+  transition: var(--transition-slow);
 
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
     &:focus-within {
       .project-inner {
         transform: translateY(-7px);
+        border-color: var(--bg-glass-border-hover);
+        box-shadow: var(--shadow-card-hover);
       }
     }
   }
@@ -63,16 +70,17 @@ const StyledProject = styled.li`
   }
 
   .project-inner {
-    ${({ theme }) => theme.mixins.boxShadow};
     ${({ theme }) => theme.mixins.flexBetween};
     flex-direction: column;
     align-items: flex-start;
     position: relative;
     height: 100%;
     padding: 2rem 1.75rem;
-    border-radius: var(--border-radius);
-    background-color: var(--light-navy);
-    transition: var(--transition);
+    border-radius: var(--border-radius-lg);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+    transition: var(--transition-slow);
     overflow: auto;
   }
 
@@ -81,7 +89,7 @@ const StyledProject = styled.li`
     margin-bottom: 35px;
 
     .folder {
-      color: var(--green);
+      color: var(--accent);
       svg {
         width: 40px;
         height: 40px;
@@ -97,6 +105,11 @@ const StyledProject = styled.li`
       a {
         ${({ theme }) => theme.mixins.flexCenter};
         padding: 5px 7px;
+        transition: var(--transition);
+
+        &:hover {
+          color: var(--accent);
+        }
 
         &.external {
           svg {
@@ -138,6 +151,7 @@ const StyledProject = styled.li`
   .project-description {
     color: var(--light-slate);
     font-size: 17px;
+    line-height: 1.7;
 
     a {
       ${({ theme }) => theme.mixins.inlineLink};
@@ -157,6 +171,7 @@ const StyledProject = styled.li`
       font-family: var(--font-mono);
       font-size: var(--fz-xxs);
       line-height: 1.75;
+      color: var(--accent-secondary);
 
       &:not(:last-of-type) {
         margin-right: 15px;
